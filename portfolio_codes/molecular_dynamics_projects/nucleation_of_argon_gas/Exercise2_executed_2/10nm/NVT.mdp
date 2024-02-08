@@ -1,0 +1,60 @@
+; RUN CONTROL PARAMETERS
+integrator               = md-vv 
+; Start time and timestep in ps
+tinit                    = 0
+dt                       = 0.002 ; 2 fs
+nsteps                   = 250000 ; 500 ps
+
+; mode for center of mass motion removal
+comm-mode                = Linear
+; number of steps for center of mass motion removal
+nstcomm                  = 100
+
+; OUTPUT CONTROL OPTIONS
+; Output frequency for coords (x), velocities (v) and forces (f)
+nstxout                  = 0 
+nstvout                  = 0
+nstfout                  = 0
+; Checkpointing helps you continue after crashes
+; Output frequency for energies to log file and energy file
+nstlog                   = 2000
+nstenergy                = 500 ; 1 ps
+nstxtcout                = 100 ; 0.2 ps output for .xtc file
+
+; NEIGHBORSEARCHING PARAMETERS
+; Periodic boundary conditions: xyz (default), no (vacuum)
+; or full (infinite systems only)
+pbc                      = xyz
+; nblist cut-off        
+rlist                    = 2
+
+; OPTIONS FOR ELECTROSTATICS AND VDW
+; Method for doing electrostatics
+coulombtype              = Cut-off
+rcoulomb-switch          = 0
+rcoulomb                 = 2.30859
+; Method for doing Van der Waals
+vdw-type                 = Cut-off
+; cut-off lengths       
+rvdw-switch              = 0
+rvdw                     = 2.30859
+; Apply long range dispersion corrections for Energy and Pressure
+DispCorr                 = EnerPres
+
+; TEMPERATURE COUPLING
+tcoupl                   = Nose-Hoover
+nh-chain-length          = 10 ; M = 10
+; Groups to couple separately
+tc-grps                  = system
+; Time constant (ps) and reference temperature (K)
+tau-t                    = 1.0
+ref-t                    = 80.7
+
+; PRESSURE COUPLING
+pcoupl                   = No
+
+; GENERATE VELOCITIES FOR STARTUP RUN
+gen-vel                  = yes
+gen-temp                 = 80.7
+gen-seed                 = -1
+

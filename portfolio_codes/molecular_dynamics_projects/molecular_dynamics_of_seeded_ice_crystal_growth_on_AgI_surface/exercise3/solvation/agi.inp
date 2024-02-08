@@ -1,0 +1,29 @@
+tolerance 1.6
+
+seed 12832
+nloop0 100
+maxit 20 
+
+# Coordinate file types will be in pdb format (keyword not required for
+# pdb file format, but required for tinker, xyz or moldy).
+
+filetype pdb
+
+# The output pdb file
+
+output AgI_plus_hemisphere_solvated.pdb
+
+
+structure AgI_plus_ice.pdb
+  number 1
+  center 
+  fixed 0. 0. 0. 0. 0. 0.
+end structure
+
+
+
+structure tip4p.pdb
+  number 8400
+  inside box -45. -40. 10. -45 40. 45.
+#  outside sphere 0. 0. 0. 7.38
+end structure

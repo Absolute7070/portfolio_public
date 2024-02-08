@@ -1,0 +1,55 @@
+title       = Umbrella pulling simulation
+define      = -DFLEXIBLE
+; Run parameters
+; Velocity Verlet integration
+integrator  = md-vv
+dt          = 0.001
+nsteps      = 1000000     ; 1 ns
+nstcomm     = 5000
+; Output parameters
+nstvout     = 10000  ; every 10 ps
+nstfout     = 10000
+nstxout     = 10000
+nstenergy   = 5000
+; Bond parameters
+constraints             = none
+; Single-range cutoff scheme
+cutoff-scheme   = Verlet
+nstlist         = 20
+ns_type         = grid
+rlist           = 1.4
+rcoulomb        = 1.4
+rvdw            = 1.4
+; PME electrostatics parameters
+coulombtype     = PME
+fourierspacing  = 0.2
+pme_order       = 4
+ewald_rtol      = 1e-5
+optimize_fft    = yes
+; Temperature coupling is on
+Tcoupl      = Nose-Hoover
+tc_grps     = SOL
+tau_t       = ?
+ref_t       = 300
+; Pressure coupling is off
+Pcoupl          = no
+refcoord_scaling = com
+; Generate velocities is off
+gen_vel     = no
+; Periodic boundary conditions are on in all directions
+pbc     = xyz
+; Long-range dispersion correction
+DispCorr    = EnerPres
+; Pull code
+pull                    = yes
+pull_ncoords            = 1         ; only one reaction coordinate
+pull_ngroups            = 2         ; two groups defining one reaction coordinate
+pull_group1_name        = w_A
+pull_group2_name        = w_B
+pull_coord1_type        = umbrella  ; harmonic potential
+pull_coord1_geometry    = distance  ; simple distance increase
+pull_coord1_dim         = Y Y Y
+pull_coord1_groups      = 1 2
+pull_coord1_start       = yes       ; define initial COM distance > 0
+pull_coord1_rate        = 0.0       ; restrain in place
+pull_coord1_k           = 10000     ; kJ mol^-1 nm^-2

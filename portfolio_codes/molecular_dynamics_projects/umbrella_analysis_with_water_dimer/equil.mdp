@@ -1,0 +1,57 @@
+title       = Umbrella equilibration
+define      = -DFLEXIBLE
+; Run parameters
+integrator  = md
+dt          = 0.001
+tinit       = 0
+nsteps      = 50000
+nstcomm     = 2500
+; Output parameters
+nstvout             = 25000  ; every 25 ps
+nstfout             = 25000
+nstxout-compressed  = 25000
+nstenergy           = 2500
+; Bond parameters
+constraints             = none
+continuation            = no
+; Single-range cutoff scheme
+cutoff-scheme   = Verlet
+nstlist         = 100
+ns_type         = grid
+rlist           = 1.2
+rcoulomb        = 1.2
+rvdw            = 1.2
+; PME electrostatics parameters
+coulombtype     = PME
+fourierspacing  = 0.2
+pme_order       = 4
+ewald_rtol      = 1e-5
+optimize_fft    = yes
+; Langevin dynamics is a thermostat
+; tau -t is the inverse friction coefficient
+tcoupl	    = v-rescale
+tc_grps     = SOL
+tau_t       = 0.5
+ref_t       = 300
+; Pressure coupling is on
+Pcoupl          = no
+refcoord_scaling = com
+; Generate velocities is off
+gen_vel     = yes
+; Periodic boundary conditions are on in all directions
+pbc     = xyz
+; Long-range dispersion correction
+DispCorr    = EnerPres
+; Pull code
+pull                    = yes
+pull_ncoords            = 1         ; only one reaction coordinate
+pull_ngroups            = 2         ; two groups defining one reaction coordinate
+pull_group1_name        = w_A
+pull_group2_name        = w_B
+pull_coord1_type        = umbrella  ; harmonic potential
+pull_coord1_geometry    = distance  ; simple distance increase
+pull_coord1_dim         = Y Y Y     ; all three dimensions
+pull_coord1_groups      = 1 2
+pull_coord1_start       = yes        ; define initial COM distance > 0
+pull_coord1_rate        = 0.0        ; restrain in place
+pull_coord1_k           = 50000      ; kJ mol^-1 nm^-2

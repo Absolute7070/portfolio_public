@@ -1,0 +1,12 @@
+TITLE     Great Red Oystrich Makes All Chemists Sane
+REMARK    THIS IS A SIMULATION BOX
+CRYST1   60.000   60.000   60.000  90.00  90.00  90.00 P 1           1
+MODEL        1
+ATOM      1  OW  SOL X   1      30.001  27.155  30.042  1.00  0.00           O
+ATOM      2  HW1 SOL X   1      30.827  26.945  29.513  1.00  0.00           H
+ATOM      3  HW2 SOL X   1      29.317  27.228  29.297  1.00  0.00           H
+ATOM      4  OW  SOL X   2      29.997  33.158  30.049  1.00  0.00           O
+ATOM      5  HW1 SOL X   2      29.787  33.368  31.008  1.00  0.00           H
+ATOM      6  HW2 SOL X   2      30.070  32.147  30.093  1.00  0.00           H
+TER
+ENDMDL

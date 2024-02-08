@@ -1,0 +1,150 @@
+Gromacs molecular dynamics package version 2023.3 loaded
+                  :-) GROMACS - gmx editconf, 2023.3-spack (-:
+
+Executable:   /appl/spack/v018/install-tree/gcc-11.3.0/gromacs-2023.3-azbu7p/bin/gmx_mpi
+Data prefix:  /appl/spack/v018/install-tree/gcc-11.3.0/gromacs-2023.3-azbu7p
+Working dir:  /users/degnaiyu/week2/Exercise2/11nm
+Command line:
+  gmx_mpi editconf -f 11.0nm.pdb -box 11.0 11.0 11.0 -o 11.0nm.gro
+
+
+GROMACS reminds you: "Water is just water" (Berk Hess)
+
+Note that major changes are planned in future for editconf, to improve usability and utility.
+Read 8192 atoms
+No velocities found
+    system size : 11.000 11.000 10.999 (nm)
+    center      :  5.465  5.456  5.518 (nm)
+    box vectors :  0.000  0.000  0.000 (nm)
+    box angles  :   0.00   0.00   0.00 (degrees)
+    box volume  :   0.00               (nm^3)
+    shift       :  0.035  0.044 -0.018 (nm)
+new center      :  5.500  5.500  5.500 (nm)
+new box vectors : 11.000 11.000 11.000 (nm)
+new box angles  :  90.00  90.00  90.00 (degrees)
+new box volume  :1331.00               (nm^3)
+                   :-) GROMACS - gmx grompp, 2023.3-spack (-:
+
+Executable:   /appl/spack/v018/install-tree/gcc-11.3.0/gromacs-2023.3-azbu7p/bin/gmx_mpi
+Data prefix:  /appl/spack/v018/install-tree/gcc-11.3.0/gromacs-2023.3-azbu7p
+Working dir:  /users/degnaiyu/week2/Exercise2/11nm
+Command line:
+  gmx_mpi grompp -f steep.mdp -c 11.0nm.gro -p LJ8192.top -o 11.0nm_steep.tpr
+
+Generating 1-4 interactions: fudge = 0.5
+Number of degrees of freedom in T-Coupling group rest is 24573.00
+The integrator does not provide a ensemble temperature, there is no system ensemble temperature
+
+GROMACS reminds you: "Water is just water" (Berk Hess)
+
+Setting the LD random seed to -71767403
+
+Generated 1 of the 1 non-bonded parameter combinations
+
+Generated 1 of the 1 1-4 parameter combinations
+
+Excluding 1 bonded neighbours molecule type 'Argon'
+Analysing residue names:
+There are:  8192      Other residues
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+
+This run will generate roughly 2 Mb of data
+                   :-) GROMACS - gmx mdrun, 2023.3-spack (-:
+
+Executable:   /appl/spack/v018/install-tree/gcc-11.3.0/gromacs-2023.3-azbu7p/bin/gmx_mpi
+Data prefix:  /appl/spack/v018/install-tree/gcc-11.3.0/gromacs-2023.3-azbu7p
+Working dir:  /users/degnaiyu/week2/Exercise2/11nm
+Command line:
+  gmx_mpi mdrun -s -deffnm 11.0nm_steep
+
+Reading file 11.0nm_steep.tpr, VERSION 2023.3-spack (single precision)
+Using 1 MPI process
+
+Non-default thread affinity set, disabling internal thread affinity
+
+Using 8 OpenMP threads 
+
+
+Polak-Ribiere Conjugate Gradients:
+   Tolerance (Fmax)   =  1.00000e+02
+   Number of steps    =        10000
+   F-max             =  5.54664e+08 on atom 2824
+   F-Norm            =  8.76494e+06
+
+
+writing lowest energy coordinates.
+
+Polak-Ribiere Conjugate Gradients converged to Fmax < 100 in 40 steps
+Potential Energy  = -1.4287463e+04
+Maximum force     =  9.0209846e+01 on atom 3938
+Norm of force     =  2.8831425e+01
+
+GROMACS reminds you: "As we all know, blinking lights means science." (Joss Whedon)
+
+                   :-) GROMACS - gmx grompp, 2023.3-spack (-:
+
+Executable:   /appl/spack/v018/install-tree/gcc-11.3.0/gromacs-2023.3-azbu7p/bin/gmx_mpi
+Data prefix:  /appl/spack/v018/install-tree/gcc-11.3.0/gromacs-2023.3-azbu7p
+Working dir:  /users/degnaiyu/week2/Exercise2/11nm
+Command line:
+  gmx_mpi grompp -f NVT.mdp -c 11.0nm_steep.gro -p LJ8192.top -o 11.0nm_8192.tpr
+
+Replacing old mdp entry 'nstxtcout' by 'nstxout-compressed'
+Generating 1-4 interactions: fudge = 0.5
+Number of degrees of freedom in T-Coupling group System is 24573.00
+
+GROMACS reminds you: "As we all know, blinking lights means science." (Joss Whedon)
+
+Setting the LD random seed to -545457173
+
+Generated 1 of the 1 non-bonded parameter combinations
+
+Generated 1 of the 1 1-4 parameter combinations
+
+Excluding 1 bonded neighbours molecule type 'Argon'
+
+Setting gen_seed to 2076171151
+
+Velocities were taken from a Maxwell distribution at 80.7 K
+Analysing residue names:
+There are:  8192      Other residues
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+
+Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 80.7 K
+
+Calculated rlist for 1x1 atom pair-list as 2.309 nm, buffer size 0.000 nm
+
+Set rlist, assuming 4x4 atom pair-list, to 2.309 nm, buffer size 0.000 nm
+
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+
+This run will generate roughly 99 Mb of data
+                   :-) GROMACS - gmx mdrun, 2023.3-spack (-:
+
+Executable:   /appl/spack/v018/install-tree/gcc-11.3.0/gromacs-2023.3-azbu7p/bin/gmx_mpi
+Data prefix:  /appl/spack/v018/install-tree/gcc-11.3.0/gromacs-2023.3-azbu7p
+Working dir:  /users/degnaiyu/week2/Exercise2/11nm
+Command line:
+  gmx_mpi mdrun -s -deffnm 11.0nm_8192 -ntomp 8
+
+Reading file 11.0nm_8192.tpr, VERSION 2023.3-spack (single precision)
+Changing nstlist from 10 to 100, rlist from 2.30859 to 2.30859
+
+Using 1 MPI process
+
+Non-default thread affinity set, disabling internal thread affinity
+
+Using 8 OpenMP threads 
+
+starting mdrun 'Supersaturated Argon'
+250000 steps,    500.0 ps.
+
+Writing final coordinates.
+
+               Core t (s)   Wall t (s)        (%)
+       Time:     1447.059      180.882      800.0
+                 (ns/day)    (hour/ns)
+Performance:      238.830        0.100
+
+GROMACS reminds you: "Hey, it's me - Pandora. Welcome to my new unboxing video!" (Anonymous)
+

@@ -1,0 +1,35 @@
+; RUN CONTROL PARAMETERS
+integrator              = cg
+emtol                   = 100
+emstep			= 0.002
+nsteps                  = 10000
+nstlist                 = 10 
+
+; OUTPUT CONTROL OPTIONS
+; Output frequency for coords (x), velocities (v) and forces (f)
+nstxout                  = 1000 
+nstvout                  = 0
+nstfout                  = 0
+; Checkpointing helps you continue after crashes
+; Output frequency for energies to log file and energy file
+nstlog                   = 1000
+
+; NEIGHBORSEARCHING PARAMETERS
+; Periodic boundary conditions: xyz (default), no (vacuum)
+; or full (infinite systems only)
+pbc                      = xyz
+; nblist cut-off        
+rlist                    = 2.0     ; Naiyu: original value 2.0
+
+; OPTIONS FOR ELECTROSTATICS AND VDW
+; Method for doing electrostatics
+coulombtype              = Cut-off
+rcoulomb-switch          = 0
+rcoulomb                 = 2.0
+; Method for doing Van der Waals
+vdw-type                 = Cut-off
+; cut-off lengths       
+rvdw-switch              = 0
+rvdw                     = 2.0
+; Apply long range dispersion corrections for Energy and Pressure
+DispCorr                 = EnerPres

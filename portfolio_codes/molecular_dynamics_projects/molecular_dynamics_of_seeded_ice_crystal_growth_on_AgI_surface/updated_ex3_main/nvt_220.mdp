@@ -1,0 +1,60 @@
+title       = Umbrella equilibration
+define      = -DFLEXIBLE
+; Run parameters
+integrator  = md
+dt          = 0.002
+tinit       = 0
+nsteps      = 1000000     ; 2000 ps
+nstcomm     = 10
+; Output parameters
+nstvout             = 25000  ; every 25 ps
+nstfout             = 25000
+nstxout-compressed  = 25000
+nstenergy           = 2500
+; Bond parameters
+; Single-range cutoff scheme
+cutoff-scheme   = Verlet
+nstlist         = 100
+ns_type         = grid
+rlist           = 1.2
+rcoulomb        = 1.2
+rvdw            = 1.2
+; PME electrostatics parameters
+coulombtype     = PME
+fourierspacing  = 0.12
+fourier_nx      = 0
+fourier_ny      = 0
+fourier_nz      = 0
+pme_order       = 4
+ewald_rtol      = 1e-5
+optimize_fft    = yes
+; Langevin dynamics is a thermostat
+; tau -t is the inverse friction coefficient
+tcoupl	    = Nose-Hoover
+tc_grps     = Water non-Water
+tau_t       = 0.4     10
+ref_t       = 220     220
+; Pressure coupling is on
+Pcoupl          = no
+refcoord_scaling = com
+; Generate velocities is off
+; Periodic boundary conditions are on in all directions
+pbc     = xyz
+; Long-range dispersion correction
+DispCorr    = EnerPres
+gen_vel                  = yes
+gen_temp                 = 253
+gen_seed                 = -1
+;pcoupl                   = No ; berendsen
+;pcoupltype               = anisotropic
+;tau-p                    = 4.0
+;compressibility          = 5.0e-5 5.0e-5 5.0e-5 0.0 0.0 0.0
+;ref-p                    = 0.0 0.0 0.0 0.0 0.0 0.0
+constraints              = hbonds
+constraint-algorithm     = lincs
+lincs-order              = 4
+lincs-iter               = 1
+continuation             = no
+freezegrps               = non-Water
+freezedim                = Y Y Y
+

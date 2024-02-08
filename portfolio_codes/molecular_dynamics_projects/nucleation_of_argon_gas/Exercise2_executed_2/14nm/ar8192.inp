@@ -1,0 +1,26 @@
+#
+# Lipid double layer with water over and below
+#
+
+# Every atom from diferent molecules will be far from each other at
+# least 2.0 Angstrons at the solution.
+
+tolerance 2.0
+
+seed 66982
+nloop0 100
+
+# Coordinate file types will be in pdb format (keyword not required for
+# pdb file format, but required for tinker, xyz or moldy).
+
+filetype pdb
+
+# The output pdb file
+
+output 14.0nm.pdb
+
+
+structure Ar.pdb
+  number 8192
+  inside box 0. 0. 0. 140.0 140.0 140.0
+end structure

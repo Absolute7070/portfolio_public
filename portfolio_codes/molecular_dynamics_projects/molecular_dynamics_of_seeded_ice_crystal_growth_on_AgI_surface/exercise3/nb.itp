@@ -1,0 +1,10 @@
+[nonbond_params]
+; i    j   fct     sigma   eps
+  Ag   OW   1      0.317   2.289       ; Hale and Kiefer
+  I    OW   1      0.334   2.602
+  Ag   HW1  1      0.000   0.000
+  I    HW1  1      0.000   0.000
+  Ag   HW2  1      0.000   0.000
+  I    HW2  1      0.000   0.000
+  OW   OW   1      0.31668 0.8821589    ; TIP4P/ice
+

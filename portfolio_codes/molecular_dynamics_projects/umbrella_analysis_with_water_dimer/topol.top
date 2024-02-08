@@ -1,0 +1,10 @@
+; Include water topology
+#include "tip3p-fb.itp"
+
+[ system ]
+; Name
+water dimer
+
+[ molecules ]
+; Name            nrexcl
+SOL                 2

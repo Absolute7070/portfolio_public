@@ -1,0 +1,5 @@
+HEADER    UNCLASSIFIED                            20-Oct-23
+TITLE     SINGLE ARGON ATOM FOR PACKMOL
+AUTHOR    STEPHEN INGRAM
+HETATM    1   Ar  Ar     0       0.500   0.500   0.500  1.00  0.00           Ar
+END
